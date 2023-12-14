@@ -13,9 +13,8 @@ public class Options extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
-
         configureOptionsBackButton();
-        //Generate
+        configureOptionsGenerateButton();
     }
 
     private void configureOptionsBackButton() {
@@ -26,6 +25,17 @@ public class Options extends AppCompatActivity {
                 finish();
             }
         });
-    }
+    } //configureOptionsGenerateButton
+
+    private void configureOptionsGenerateButton() {
+        Button newGen = (Button) findViewById(R.id.GenerateButton);
+        newGen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Test for information, then startActivity -> ApiAppMain.generateFruit?
+                startActivity(new Intent(Options.this, Results.class));
+            }
+        });
+    } //configureOptionsGenerateButton
 
 }
